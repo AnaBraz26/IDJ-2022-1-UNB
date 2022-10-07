@@ -2,8 +2,8 @@
 #define INCLUDE_SDL_TTF
 #include "SDL_include.h"
 #include "State.h"
-#include "StageState.hpp"
-#include "TitleState.hpp"
+#include "StageState.h"
+#include "TitleState.h"
 #include <string>
 #include <stdio.h>
 #include <stack>

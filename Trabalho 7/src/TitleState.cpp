@@ -33,7 +33,7 @@ void TitleState::Render(){
 void TitleState::Update(float dt){
     
 	InputManager instance = InputManager::GetInstance();
-	if(instance.KeyPress(ESCAPE_KEY) || instance.QuitRequested())
+	if(instance.KeyPress(ESCAPE_KEY) || instance.Quitresquested())
 		quitRequested = true;
     if(instance.KeyPress(SPACEBAR)){
         Game::GetInstance().Push(new StageState());

@@ -28,17 +28,17 @@ Alien :: Alien(GameObject &associated, int nMinions, float timeOffset): Componen
 Alien :: ~Alien(){
     for(unsigned int i = 0; i < minionArray.size(); i++){
         if(shared_ptr<GameObject> go = minionArray[i].lock()){
-            go->ResquestDelete()
+            go->RequestDelete();
         }
     
-        aliencount -= 1;
     }
+    aliencount -= 1;
     
 }
 
 void Alien :: Start(){
     for(int i = 0; i < nMinions; i++){
-        State *instance = &Game::GetInstance().GetState();
+        State* instance = &Game::GetInstance().GetCurrentState();
         GameObject *go = new GameObject();
         weak_ptr<GameObject> aliencenter = instance->GetObjectPtr(&associated);
         Minion *minion = new Minion(*go, aliencenter, (M_PI*(1+2*i*360/nMinions))/360);
@@ -144,7 +144,7 @@ void Alien::NotifyCollision(GameObject& other){
 
             if(hp <= 0){
                 GameObject *go = new GameObject();
-                State *instance = &Game::GetInstance().GetState();
+                State *instance = &Game::GetInstance().GetCurrentState();
                 go->angleDeg = associated.angleDeg;
                 Sprite *sprite = new Sprite(*go, "img/aliendeath.png", 4, 0.1, 0.4);
                 go->box.x = associated.box.center().x - go->box.w/2;

@@ -21,12 +21,12 @@ EndState::EndState(){
         goText-> box.x = 300;
         goText-> box.y = 500;
         backgroundMusic = new Music("audio/endStateWin.ogg");
-        backgroundMusic -> Volume(10);
+        
         backgroundMusic -> Play();
 
     }
     else{
-        if(PenguinBody::player == nullptr){
+        if(PenguinsBody::player == nullptr){
             GameObject *go = new GameObject();
             Sprite *title = new Sprite(*go, "img/lose.jpg");
             go->box.x = go->box.y = 0;
@@ -40,7 +40,6 @@ EndState::EndState(){
             goText-> box.x = 300;
             goText-> box.y = 550;
             backgroundMusic = new Music("audio/endStateLose.ogg");
-            backgroundMusic -> Volume(10);
             backgroundMusic -> Play();
         }
     }
@@ -57,7 +56,7 @@ void EndState::Render(){
 void EndState::Update(float dt){
     
 	InputManager instance = InputManager::GetInstance();
-	if(instance.KeyPress(ESCAPE_KEY) || instance.QuitRequested())
+	if(instance.KeyPress(ESCAPE_KEY) || instance.Quitresquested() )
 		quitRequested = true;
     if(instance.KeyPress(SPACEBAR)){
         popRequested = true;

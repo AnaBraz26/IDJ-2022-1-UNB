@@ -115,7 +115,7 @@ void Game::Run(){
     while(!stateStack.top()->QuitRequested() && !stateStack.empty()){
         if(stateStack.top()->PopRequested()){
             stateStack.top()->Pause();
-            stateStack.pop();
+            stateStack.pop();            
             if(!stateStack.empty()){
                 stateStack.top()->Resume();
             }

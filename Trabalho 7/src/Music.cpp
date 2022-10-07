@@ -31,7 +31,7 @@ void Music :: Stop(int msToStop){
 }
 
 void Music :: Open(std::string file){
-	music = Resources :: GetMusic(file);
+	music = Resources :: GetMusic(file).get();
 	if(music == nullptr){
 		// In the case that the window could not be made...
         printf("Nao abriu a musica (Music.cpp): %s\n", SDL_GetError());

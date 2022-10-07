@@ -54,7 +54,7 @@ void Minion :: Shoot(Vec2 target){
 
     Bullet *bullet = new Bullet(*go, angle, 512, 20, 1024, "img/minionbullet2.png", 3, true);
     go->AddComponent(bullet);
-    State *instance = &Game::GetInstance().GetState();
+    State *instance = &Game::GetInstance().GetCurrentState();
     instance -> AddObject(go);
 }
 
