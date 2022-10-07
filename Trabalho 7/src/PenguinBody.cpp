@@ -15,7 +15,7 @@ PenguinsBody :: PenguinsBody(GameObject& associated): Component(associated){
     speed = Vec2(0,0);
     linearSpeed = 0.1;
     angle = 0;
-    hp = 100;
+    hp = 10*100;
 
     Collider *collider = new Collider(associated);
     associated.AddComponent(collider);
@@ -93,7 +93,7 @@ void PenguinsBody :: Render(){
 }
 
 void PenguinsBody :: Start(){
-    State *instance = &Game::GetInstance().GetState();
+    State *instance = &Game::GetInstance().GetCurrentState();
     GameObject *go = new GameObject();
     weak_ptr<GameObject> penguinCenter = instance->GetObjectPtr(&associated);
     PenguinCannon *penguinCannon = new PenguinCannon(*go, penguinCenter);
@@ -117,7 +117,7 @@ void PenguinsBody::NotifyCollision(GameObject& other){
            
             if(hp <= 0){
                 GameObject *go = new GameObject();
-                State *instance = &Game::GetInstance().GetState();
+                State *instance = &Game::GetInstance().GetCurrentState();
                 Sprite *sprite = new Sprite(*go, "img/penguindeath.png", 5,0.1, 0.5);
                 go->box.x = associated.box.center().x - go->box.w/2;
                 go->box.y = associated.box.center().y - go->box.h/2;

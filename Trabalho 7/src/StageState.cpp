@@ -41,7 +41,6 @@ void StageState::LoadAssets(){
 	objectArray.emplace_back(go);
 
     BackgroundMusic = new Music("audio/stageState.ogg");
-    BackgroundMusic->Volume(10);
 
     for(int i = 0; i < 3; i++){
         GameObject *aliengo = new GameObject();
@@ -73,19 +72,19 @@ void StageState::Render(){
 }
 
 void StageState::Update(float dt){
-    if(PenguinBody::player == nullptr){
+    if(PenguinsBody::player == nullptr){
         GameData::playerVictory = false;
         popRequested = true;
         Game::GetInstance().Push(new EndState());
     }
-    else if(Alien::aliencount == 0){
+    else if(Alien::aliencount <= 0){
         GameData::playerVictory = true;
         popRequested = true;
         Game::GetInstance().Push(new EndState());
     }
     else{
         InputManager instance = InputManager::GetInstance();
-        if(instance.KeyPress(ESCAPE_KEY) || instance.QuitRequested()){
+        if(instance.KeyPress(ESCAPE_KEY) || instance.Quitresquested()) {
             popRequested = true;
             BackgroundMusic->Stop();
             Camera::Unfollow();

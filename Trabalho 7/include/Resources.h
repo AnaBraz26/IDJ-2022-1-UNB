@@ -6,6 +6,7 @@
 #include <string>
 #include <stdio.h>
 #include <unordered_map>
+#include <memory>
 using namespace std;
 
 #ifndef RESOURCES_H

@@ -1,3 +1,5 @@
+#ifndef GAMEDATA_H
+#define GAMEDATA_H
 #define INCLUDE_SDL
 #include "SDL_include.h"
 #include "Sprite.h"
@@ -13,8 +15,6 @@
 #include "Collider.h"
 using namespace std;
 
-#ifndef GAMEDATA_H
-#define GAMEDATA_H
 
 class GameData {
     public:

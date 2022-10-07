@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string>
 #include <unordered_map>
+
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 

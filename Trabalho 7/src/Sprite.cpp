@@ -38,7 +38,7 @@ void Sprite :: Open(std::string file){
 	if(texture != nullptr){
 		SDL_DestroyTexture(texture);
 
-		texture = Resources :: GetImage(file);
+		texture = Resources :: GetImage(file).get();
 
 		if(texture == nullptr)
 		{
@@ -47,7 +47,7 @@ void Sprite :: Open(std::string file){
 		}
 	}
 	else{
-		texture = Resources :: GetImage(file);
+		texture = Resources :: GetImage(file).get();
 
 		if(texture == nullptr)
 		{
