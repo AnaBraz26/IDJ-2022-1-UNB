@@ -1,4 +1,4 @@
-# IDJ20221UNB
+# IDJ - 2022/1 - UNB
 
 Repositório dos trabalhos de Introdução a desenvolvimento de Jogos 2022/1 - UNB
 
